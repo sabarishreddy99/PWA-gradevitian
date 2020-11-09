@@ -447,7 +447,15 @@
 
 
 
+  <script>
 
+    if ('ServiceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js');
+      });
+    }
+
+  </script>
 
 
 
@@ -3271,7 +3279,7 @@
 
 
 
-  </script>
+</script>
 </body>
 
 </html>
