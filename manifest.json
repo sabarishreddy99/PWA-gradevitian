@@ -1,7 +1,7 @@
 {
   "name": "gradeVITian.in",
   "short_name": "gradeVITian",
-  "start_url": ".",
+  "start_url": "index.html",
   "background_color": "#DAA520",
   "theme_color": "#191970",
   "display": "standalone",
