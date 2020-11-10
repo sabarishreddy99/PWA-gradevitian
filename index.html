@@ -36,7 +36,6 @@
   <link rel="apple-touch-icon" href="logo192.png">
   <link rel="canonical" href="https://gradevitian.in" />
   <script src="/main.js"></script>
-  <script src="/service-worker.js"></script>
 
   <style type="text/css">
     #scrolltop {
@@ -392,14 +391,19 @@
 
       section {
 
-        background: linear-gradient(to bottom right, #003366 1%, #000000 98%);
+        background: #FCF6F5FF;
       }
 
       .containers {
         border-radius: 10px;
-        background: linear-gradient(to bottom right, #003366 1%, #000000 98%);
-        color: white;
+        background: #2C5F2DFF;
+        color: #FFE77AFF;
 
+      }
+
+
+      .switch.flat input:checked+.slider {
+        background: blue;
       }
 
 
@@ -572,11 +576,11 @@
   <div class="remain">
 
 
-    <nav class="navbar navbar-expand-lg bg-warning navbar-dark fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: #FF7F50;">
       <a class="navbar-brand text-dark" href="https://gradevitian.in/">
         <h3>&#127919;grade<strong>vitian.in</strong></h3>
       </a>
-      <button class="navbar-toggler navbar-toggler-right bg-dark" type="button" data-toggle="collapse"
+      <button class="navbar-toggler navbar-toggler-right bg-secondary" type="button" data-toggle="collapse"
         data-target="#collapsibleNavbar">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -3288,7 +3292,7 @@
 
 
 
-  </script>
+</script>
 </body>
 
 </html>
