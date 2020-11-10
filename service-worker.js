@@ -1,8 +1,5 @@
 
 
-
-
-
 // Incrementing OFFLINE_VERSION will kick off the install event and force
 // previously cached resources to be updated from the network.
 const OFFLINE_VERSION = 1;
@@ -17,7 +14,6 @@ self.addEventListener('install', function (event) {
         [
 
           'logo192.png',
-          'logo512.png',
           'index.html'
         ]
       );
@@ -82,3 +78,37 @@ self.addEventListener("fetch", (event) => {
 
 
 
+let deferredPrompt;
+
+window.addEventListener('beforeinstallprompt', (e) => {
+  // Prevent the mini-infobar from appearing on mobile
+  e.preventDefault();
+  // Stash the event so it can be triggered later.
+  deferredPrompt = e;
+  // Update UI notify the user they can install the PWA
+  showInstallPromotion();
+});
+
+
+buttonInstall.addEventListener('click', (e) => {
+  // Hide the app provided install promotion
+  hideMyInstallPromotion();
+  // Show the install prompt
+  deferredPrompt.prompt();
+  // Wait for the user to respond to the prompt
+  deferredPrompt.userChoice.then((choiceResult) => {
+    if (choiceResult.outcome === 'accepted') {
+      console.log('User accepted the install prompt');
+    } else {
+      console.log('User dismissed the install prompt');
+    }
+  });
+});
+
+
+
+
+window.addEventListener('appinstalled', (evt) => {
+  // Log install to analytics
+  console.log('INSTALL: Success');
+});
